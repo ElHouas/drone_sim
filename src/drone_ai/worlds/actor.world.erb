@@ -1,4 +1,13 @@
 <?xml version="1.0" ?>
+<%
+  #Set simulation parameters and compile
+  #Run in the worlds folder : erb -T 1 actor.world.erb > actor.world
+  #Actor0
+  x_distance = 5
+  y_distance = 3
+  z_distance = 5
+
+%>
 
 <sdf version="1.4">
   <world name="default">
@@ -13,7 +22,7 @@
         <filename>moonwalk.dae</filename>
         <scale>1.0</scale>
       </skin>
-      <pose> 5 0 0 0 0</pose>
+      <pose> <%= x_distance %> 0 0 0 0</pose>
       <animation name="walking">
         <filename>walk.dae</filename>
         <scale>1.0</scale>
@@ -26,23 +35,23 @@
         <trajectory id="0" type="walking">
           <waypoint>
             <time>0</time>
-            <pose>5 3 0 0 0 -1.57</pose>
+            <pose><%= x_distance %> <%= y_distance %> 0 0 0 -1.57</pose>
           </waypoint>
           <waypoint>
             <time>6</time>
-            <pose>5 -3  0 0 0 -1.57</pose>
+            <pose><%= x_distance %> <%= -y_distance %>  0 0 0 -1.57</pose>
           </waypoint>
           <waypoint>
             <time>8</time>
-            <pose>5 -3  0 0 0 1.57</pose>
+            <pose><%= x_distance %> <%= -y_distance %>  0 0 0 1.57</pose>
           </waypoint>
           <waypoint>
             <time>14</time>
-            <pose>5 3  0 0 0 1.57</pose>
+            <pose><%= x_distance %> <%= y_distance %>  0 0 0 1.57</pose>
           </waypoint>
           <waypoint>
             <time>16</time>
-            <pose>5 3  0 0 0 -1.57</pose>
+            <pose><%= x_distance %> <%= y_distance %>  0 0 0 -1.57</pose>
           </waypoint>
         </trajectory>
       </script>
