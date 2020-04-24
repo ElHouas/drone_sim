@@ -9,16 +9,19 @@ from copy import deepcopy
 from cv_bridge import CvBridge, CvBridgeError
 import cv2
 
-import keras
+#import keras
 from math import *
 import numpy as np
 import time
 
-from helpers.openpose import OpenPose
-openpose = OpenPose()
+#from helpers.openpose import OpenPose
+#openpose = OpenPose()
 
 from helpers.control import Control
 control = Control()
+
+from helpers.trtpose import TrtPose
+trtpose = TrtPose()
 
 
 class Tracking(object):
@@ -41,15 +44,16 @@ class Tracking(object):
                 start_time = time.time()
                 frame = deepcopy(self.frame)
                 
-                points = openpose.detect(frame)
-
+                #points = openpose.detect(frame)
+                points = trtpose.detect(frame)
+                
                 for i in range(len(points)):
                     if points[i] is not None:
                         frame = cv2.circle(frame, (int(points[i][0]), int(points[i][1])), 3, (0, 255, 255), thickness=-1, lineType=cv2.FILLED)
                 cv2.imshow("", frame)
                 cv2.waitKey(1)
-                
-                # print("%s seconds" % (time.time() - start_time))
+
+                print("%s seconds" % (time.time() - start_time))
 
             self.rate.sleep()
     

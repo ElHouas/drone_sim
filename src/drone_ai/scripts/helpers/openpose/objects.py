@@ -10,8 +10,8 @@ from math import *
 rospack = rospkg.RosPack()
 openpose_folder = os.path.join(rospack.get_path("drone_ai"), "scripts/helpers/openpose/models/")
 net = cv2.dnn.readNetFromTensorflow(openpose_folder + "graph_opt.pb")
-# net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
-# net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
+#net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA) #Python3
+#net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA) #Python3
 nPoints = 18
 threshold = 0.1
 inputSize = 300
@@ -19,6 +19,7 @@ inputSize = 300
 class OpenPose():
     def __init__(self):
         self.goal = 0.0  # [angle]
+
 
     def detect(self, cv_image):
         frameWidth = cv_image.shape[1]

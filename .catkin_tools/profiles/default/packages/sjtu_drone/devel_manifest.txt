@@ -1,0 +1,5 @@
+sjtu-drone
+/home/wecorp/drone_sim/devel/.private/sjtu_drone/cmake.lock /home/wecorp/drone_sim/devel/./cmake.lock
+/home/wecorp/drone_sim/devel/.private/sjtu_drone/lib/pkgconfig/sjtu_drone.pc /home/wecorp/drone_sim/devel/lib/pkgconfig/sjtu_drone.pc
+/home/wecorp/drone_sim/devel/.private/sjtu_drone/share/sjtu_drone/cmake/sjtu_droneConfig-version.cmake /home/wecorp/drone_sim/devel/share/sjtu_drone/cmake/sjtu_droneConfig-version.cmake
+/home/wecorp/drone_sim/devel/.private/sjtu_drone/share/sjtu_drone/cmake/sjtu_droneConfig.cmake /home/wecorp/drone_sim/devel/share/sjtu_drone/cmake/sjtu_droneConfig.cmake
