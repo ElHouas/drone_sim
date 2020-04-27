@@ -1,5 +1,0 @@
-geometry2/tf2_bullet
-/home/wecorp/drone_sim/devel/.private/tf2_bullet/cmake.lock /home/wecorp/drone_sim/devel/./cmake.lock
-/home/wecorp/drone_sim/devel/.private/tf2_bullet/lib/pkgconfig/tf2_bullet.pc /home/wecorp/drone_sim/devel/lib/pkgconfig/tf2_bullet.pc
-/home/wecorp/drone_sim/devel/.private/tf2_bullet/share/tf2_bullet/cmake/tf2_bulletConfig.cmake /home/wecorp/drone_sim/devel/share/tf2_bullet/cmake/tf2_bulletConfig.cmake
-/home/wecorp/drone_sim/devel/.private/tf2_bullet/share/tf2_bullet/cmake/tf2_bulletConfig-version.cmake /home/wecorp/drone_sim/devel/share/tf2_bullet/cmake/tf2_bulletConfig-version.cmake

@@ -1,6 +1,0 @@
-geometry2/tf2
-/home/wecorp/drone_sim/devel/.private/tf2/cmake.lock /home/wecorp/drone_sim/devel/./cmake.lock
-/home/wecorp/drone_sim/devel/.private/tf2/lib/libtf2.so /home/wecorp/drone_sim/devel/lib/libtf2.so
-/home/wecorp/drone_sim/devel/.private/tf2/lib/pkgconfig/tf2.pc /home/wecorp/drone_sim/devel/lib/pkgconfig/tf2.pc
-/home/wecorp/drone_sim/devel/.private/tf2/share/tf2/cmake/tf2Config-version.cmake /home/wecorp/drone_sim/devel/share/tf2/cmake/tf2Config-version.cmake
-/home/wecorp/drone_sim/devel/.private/tf2/share/tf2/cmake/tf2Config.cmake /home/wecorp/drone_sim/devel/share/tf2/cmake/tf2Config.cmake
