@@ -38,12 +38,13 @@ class TrtPose():
 
         print("Creating topology")
         self.topology = trt_pose.coco.coco_category_to_topology(self.human_pose)
-        #rospy.logdebug("Topology====>"+str(self.topology))
+        #print("Topology====>", self.topology)
 
         self.WIDTH = 224
         self.HEIGHT = 224
 
         OPTIMIZED_MODEL = 'resnet18_baseline_att_224x224_A_epoch_249_trt.pth'
+        #OPTIMIZED_MODEL = 'densenet121_baseline_att_256x256_B_epoch_160_trt.pth'
         optimized_model_weights_path = os.path.join('/home/wecorp/drone_sim/src/drone_ai/scripts/helpers/trtpose/models/', OPTIMIZED_MODEL)
 
         if not os.path.exists(optimized_model_weights_path):
@@ -69,8 +70,10 @@ class TrtPose():
 
         rospy.loginfo("Creating Model")
         model = trt_pose.models.resnet18_baseline_att(num_parts, 2 * num_links).cuda().eval()
+        #model = trt_pose.models.densenet121_baseline_att(num_parts, 2 * num_links).cuda().eval()
         rospy.loginfo("Load the weights from the eight files predownloaded to this package")
         MODEL_WEIGHTS = 'resnet18_baseline_att_224x224_A_epoch_249.pth'
+        #MODEL_WEIGHTS = 'densenet121_baseline_att_256x256_B_epoch_160.pth'
         model_weights_path = os.path.join('/home/wecorp/drone_sim/src/drone_ai/scripts/helpers/trtpose/models/', MODEL_WEIGHTS)
 
         rospy.loginfo("Load state dict")
@@ -101,24 +104,7 @@ class TrtPose():
         cmap, paf = cmap.detach().cpu(), paf.detach().cpu()
         counts, objects, peaks = self.parse_objects(cmap, paf)
 
-        frameWidth = image.shape[1]
-        frameHeight = image.shape[0]
-
-        points = []
-        for i in range(counts):
-            obj = objects[0][i]
-            C = obj.shape[0]
-            for j in range(C):
-                k = int(obj[j])
-                if k >= 0:
-                    peak = peaks[0][j][k]
-                    x = round(float(peak[1]) * self.WIDTH)
-                    y = round(float(peak[0]) * self.HEIGHT)
-                    points.append((int(x), int(y)))
-            else :
-                points.append(None)
-
-        return points
+        return counts, objects, peaks, self.topology
 
 
     def calcYawAngle(self, position):

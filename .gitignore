@@ -129,6 +129,12 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+#Sjtu drone
+src/sjtu-drone
+
+#Models
+src/drone_ai/scripts/helpers/trtpose/models
+
 # ROS
 .catkin_tools
 .idea/
