@@ -130,5 +130,10 @@ dmypy.json
 .pyre/
 
 # ROS
+.catkin_tools
 .idea/
 .catkin_workspace
+CATKIN_IGNORE
+devel/
+logs/
+build/
