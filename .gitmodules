@@ -1,6 +1,6 @@
 [submodule "src/geometry2"]
         path = src/geometry2
-	url = https://github.com/Tao-wecorp/geometry2/tree/ce75a9f1ee748eddfe33d694a4a42d3767052d17
+	url = https://github.com/Tao-wecorp/geometry2.git
 	[submodule "src/vision_opencv"]
         path = src/vision_opencv
 	url = https://github.com/OAkyildiz/vision_opencv.git
