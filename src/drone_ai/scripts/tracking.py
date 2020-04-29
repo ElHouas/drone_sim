@@ -29,10 +29,11 @@ class Tracking(object):
         rospy.init_node('yaw_node', anonymous=True)
         self.rate = rospy.Rate(10)
 
-        self.reset_simulation = rospy.ServiceProxy('/gazebo/reset_simulation', Empty)
-        self.reset_simulation()
+        #self.reset_simulation = rospy.ServiceProxy('/gazebo/reset_simulation', Empty) #Uncomment to use it with Gazebo
+        #self.reset_simulation() #Uncomment to use it with Gazebo
 
-        rospy.Subscriber("/drone/front_camera/image_raw",Image,self.camera_callback)
+        #rospy.Subscriber("/drone/front_camera/image_raw",Image,self.camera_callback) #Uncomment to use it with Gazebo
+        rospy.Subscriber("/camera_d435/color/image_raw",Image,self.camera_callback)
         self.bridge_object = CvBridge()
         self.frame = None
 
@@ -43,15 +44,17 @@ class Tracking(object):
             if self.frame is not None:
                 start_time = time.time()
                 #frame = deepcopy(self.frame)
-                frame = self.frame
+                dim = (224,224)  #Resnet18
+                frame = cv2.resize(self.frame,dim) #Resnet18
                 
-                #points = openpose.detect(frame)
-                #for i in range(len(points)):
-                #    if points[i] is not None:
-                #        frame = cv2.circle(frame, (int(points[i][0]), int(points[i][1])), 3, (0, 255, 255), thickness=-1, lineType=cv2.FILLED)
-                #cv2.imshow("", frame)
-                #cv2.waitKey(1)
-
+#                points = openpose.detect(frame)
+#                for i in range(len(points)):
+#                    if points[i] is not None:
+#                        frame = cv2.circle(frame, (int(points[i][0]), int(points[i][1])), 3, (0, 255, 255), thickness=-1, lineType=cv2.FILLED)
+#                cv2.imshow("", frame)
+#                cv2.waitKey(1)
+#                print("%s seconds" % (time.time() - start_time))
+            
                 object_counts, objects, normalized_peaks, topology = trtpose.detect(frame)
                 height = frame.shape[0]
                 width = frame.shape[1]
@@ -82,10 +85,10 @@ class Tracking(object):
                             x1 = round(float(peak1[1]) * width)
                             y1 = round(float(peak1[0]) * height)
                             cv2.line(frame, (x0, y0), (x1, y1), color, 2)
-                                
+                
                 cv2.imshow("", frame)
                 cv2.waitKey(1)
-                #print("%s seconds" % (time.time() - start_time))
+                print("%s seconds" % (time.time() - start_time))     
 
             self.rate.sleep()
     

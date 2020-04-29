@@ -30,7 +30,7 @@ class TrtPose():
         self.follow_people_configfiles_path = rospkg.RosPack().get_path('drone_ai')+"/scripts/helpers/trtpose/models"
 
         print("We get the human pose json file that described the human pose")
-        humanPose_file_path = os.path.join('/home/wecorp/drone_sim/src/drone_ai/scripts/helpers/trtpose/models/', 'human_pose.json')
+        humanPose_file_path = os.path.join(rospkg.RosPack().get_path('drone_ai')+"/scripts/helpers/trtpose/models/", 'human_pose.json')
 
         print("Opening json file")
         with open(humanPose_file_path, 'r') as f:
@@ -45,7 +45,7 @@ class TrtPose():
 
         OPTIMIZED_MODEL = 'resnet18_baseline_att_224x224_A_epoch_249_trt.pth'
         #OPTIMIZED_MODEL = 'densenet121_baseline_att_256x256_B_epoch_160_trt.pth'
-        optimized_model_weights_path = os.path.join('/home/wecorp/drone_sim/src/drone_ai/scripts/helpers/trtpose/models/', OPTIMIZED_MODEL)
+        optimized_model_weights_path = os.path.join(self.follow_people_configfiles_path, OPTIMIZED_MODEL)
 
         if not os.path.exists(optimized_model_weights_path):
             self.__create_optimodel(optimized_model_weights_path)
@@ -74,7 +74,7 @@ class TrtPose():
         rospy.loginfo("Load the weights from the eight files predownloaded to this package")
         MODEL_WEIGHTS = 'resnet18_baseline_att_224x224_A_epoch_249.pth'
         #MODEL_WEIGHTS = 'densenet121_baseline_att_256x256_B_epoch_160.pth'
-        model_weights_path = os.path.join('/home/wecorp/drone_sim/src/drone_ai/scripts/helpers/trtpose/models/', MODEL_WEIGHTS)
+        model_weights_path = os.path.join(self.follow_people_configfiles_path, MODEL_WEIGHTS)
 
         rospy.loginfo("Load state dict")
         model.load_state_dict(torch.load(model_weights_path))
