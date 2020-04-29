@@ -133,7 +133,7 @@ dmypy.json
 src/sjtu-drone
 
 #Models
-src/drone_ai/scripts/helpers/trtpose/models/
+src/drone_ai/scripts/helpers/trtpose/models/*
 
 # ROS
 .catkin_tools
