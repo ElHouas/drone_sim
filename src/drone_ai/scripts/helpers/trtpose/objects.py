@@ -40,8 +40,8 @@ class TrtPose():
         self.topology = trt_pose.coco.coco_category_to_topology(self.human_pose)
         #print("Topology====>", self.topology)
 
-        self.WIDTH = 224
-        self.HEIGHT = 224
+        self.WIDTH = 640
+        self.HEIGHT = 480
 
         OPTIMIZED_MODEL = 'resnet18_baseline_att_224x224_A_epoch_249_trt.pth'
         #OPTIMIZED_MODEL = 'densenet121_baseline_att_256x256_B_epoch_160_trt.pth'

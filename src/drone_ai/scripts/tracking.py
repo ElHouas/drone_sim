@@ -44,8 +44,9 @@ class Tracking(object):
             if self.frame is not None:
                 start_time = time.time()
                 #frame = deepcopy(self.frame)
-                dim = (224,224)  #Resnet18
-                frame = cv2.resize(self.frame,dim) #Resnet18
+                frame = self.frame
+                #dim = (224,224)  #Resnet18
+                #frame = cv2.resize(self.frame,dim) #Resnet18
                 
 #                points = openpose.detect(frame)
 #                for i in range(len(points)):
