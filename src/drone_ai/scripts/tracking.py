@@ -25,12 +25,8 @@ class Tracking(object):
         rospy.init_node('yaw_node', anonymous=True)
         self.rate = rospy.Rate(10)
 
-        #self.reset_simulation = rospy.ServiceProxy('/gazebo/reset_simulation', Empty) #Uncomment to use it with Gazebo
-        #self.reset_simulation() #Uncomment to use it with Gazebo
-
-        #rospy.Subscriber("/drone/front_camera/image_raw",Image,self.camera_callback) #Uncomment to use it with Gazebo
-        rospy.Subscriber("/camera_d435/color/image_raw",Image,self.camera_callback)
-
+        rospy.Subscriber("/tello/camera/image_raw/", Image, self.camera_callback)
+        
         self.bridge_object = CvBridge()
         self.frame = None
 
