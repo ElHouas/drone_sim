@@ -5,17 +5,13 @@ from sensor_msgs.msg import Image
 from std_msgs.msg import Float64
 from std_srvs.srv import Empty
 
-from copy import deepcopy
 from cv_bridge import CvBridge, CvBridgeError
 import cv2
 
-#import keras
 from math import *
 import numpy as np
 import time
 
-#from helpers.openpose import OpenPose
-#openpose = OpenPose()
 
 from helpers.control import Control
 control = Control()
@@ -34,6 +30,7 @@ class Tracking(object):
 
         #rospy.Subscriber("/drone/front_camera/image_raw",Image,self.camera_callback) #Uncomment to use it with Gazebo
         rospy.Subscriber("/camera_d435/color/image_raw",Image,self.camera_callback)
+
         self.bridge_object = CvBridge()
         self.frame = None
 
@@ -43,19 +40,8 @@ class Tracking(object):
         while not rospy.is_shutdown():
             if self.frame is not None:
                 start_time = time.time()
-                #frame = deepcopy(self.frame)
                 frame = self.frame
-                #dim = (224,224)  #Resnet18
-                #frame = cv2.resize(self.frame,dim) #Resnet18
-                
-#                points = openpose.detect(frame)
-#                for i in range(len(points)):
-#                    if points[i] is not None:
-#                        frame = cv2.circle(frame, (int(points[i][0]), int(points[i][1])), 3, (0, 255, 255), thickness=-1, lineType=cv2.FILLED)
-#                cv2.imshow("", frame)
-#                cv2.waitKey(1)
-#                print("%s seconds" % (time.time() - start_time))
-            
+                            
                 object_counts, objects, normalized_peaks, topology = trtpose.detect(frame)
                 height = frame.shape[0]
                 width = frame.shape[1]
