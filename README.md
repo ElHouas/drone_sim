@@ -3,6 +3,7 @@
 ---
 ## Sprint Presentation
 - [Gazebo & ROS Openpose](./Gazebo%20and%20ROS%20presentation.pdf)
+- [ROS Gazebo Quadrotor](./ROS_Gazebo_Quadrotor_simulator.pdf)
 ---
 ## Env
 1. ./env.sh
