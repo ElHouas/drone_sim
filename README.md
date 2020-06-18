@@ -24,3 +24,5 @@ sudo apt-get install libavfilter6
 2. https://github.com/tahsinkose/sjtu-drone
 3. https://github.com/tahsinkose/openai-ros-gazebo-workout
 4. https://github.com/PyAV-Org/PyAV/issues/607
+5. https://www.pyimagesearch.com/2018/08/15/how-to-install-opencv-4-on-ubuntu/
+6. https://www.pyimagesearch.com/2020/02/03/how-to-use-opencvs-dnn-module-with-nvidia-gpus-cuda-and-cudnn/

@@ -134,6 +134,7 @@ src/sjtu-drone
 
 #Models
 src/drone_ai/scripts/helpers/trtpose/models/*
+*.caffemodel
 
 # ROS
 .catkin_tools
