@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
 import cv2
 import os
@@ -10,8 +10,8 @@ from math import *
 rospack = rospkg.RosPack()
 openpose_folder = os.path.join(rospack.get_path("drone_ai"), "scripts/helpers/openpose/models/")
 net = cv2.dnn.readNetFromTensorflow(openpose_folder + "graph_opt.pb")
-#net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA) #Python3
-#net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA) #Python3
+net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA) #Python3
+net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA) #Python3
 nPoints = 18
 threshold = 0.1
 inputSize = 300

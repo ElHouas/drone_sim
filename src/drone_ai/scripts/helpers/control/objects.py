@@ -8,11 +8,11 @@ from geometry_msgs.msg import Twist
 class Control():
     def __init__(self):
         self.ctrl_c = False
-        self._pub_cmd_vel = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+        self._pub_cmd_vel = rospy.Publisher('/tello/cmd_vel', Twist, queue_size=1)
         self._move_msg = Twist()
-        self._pub_takeoff = rospy.Publisher('/drone/takeoff', Empty, queue_size=1)
+        self._pub_takeoff = rospy.Publisher('/tello/takeoff', Empty, queue_size=1)
         self._takeoff_msg = Empty()
-        self._pub_land = rospy.Publisher('/drone/land', Empty, queue_size=1)
+        self._pub_land = rospy.Publisher('/tello/land', Empty, queue_size=1)
         self._land_msg = Empty()
 
     def stop(self):

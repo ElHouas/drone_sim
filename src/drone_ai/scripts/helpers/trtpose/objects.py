@@ -19,6 +19,8 @@ import numpy
 import torch2trt
 from torch2trt import TRTModule
 numpy.set_printoptions(threshold=sys.maxsize)
+from math import *
+
 
 nPoints = 18
 
