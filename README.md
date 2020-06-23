@@ -26,3 +26,15 @@ sudo apt-get install libavfilter6
 4. https://github.com/PyAV-Org/PyAV/issues/607
 5. https://www.pyimagesearch.com/2018/08/15/how-to-install-opencv-4-on-ubuntu/
 6. https://www.pyimagesearch.com/2020/02/03/how-to-use-opencvs-dnn-module-with-nvidia-gpus-cuda-and-cudnn/
+
+---
+# Appendix
+## Commits
+|Commit Abbreviation | Description |
+|-------------|---------------------------|
+|INIT:        | Initialised a file
+|MOD:         | Modified a function or something. |
+|ADD:         | Added a function or an aspect of something. |
+|FIX:         | A quick little fix. |
+|DEL:         | Deleted something. |
+|[NOT TESTED] | Flag for if it hasn't been tested. |
