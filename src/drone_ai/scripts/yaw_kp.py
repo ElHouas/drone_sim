@@ -93,15 +93,18 @@ class Yaw(object):
                 
                 
                 # # To-do: multithread or action node
-                if not poses : # nose point
+                print('poses', len(poses))
+                if is not poses: # nose point
                     continue
                 else:
                     x, y = poses[0][0]
                     yaw_angle = trtpose.calcYawAngle([x, y])
+                    print('YAW', yaw_angle)
                     # To-do: Investigation on proportional controller
                     # https://www.theconstructsim.com/ros-qa-135-how-to-rotate-a-robot-to-a-desired-heading-using-feedback-from-odometry/
                     self.move_msg.angular.z = kp * (yaw_angle*pi/180 - current_yaw)
-                    self.pub_cmd_vel.publish(self.move_msg)
+                    #self.pub_cmd_vel.publish(self.move_msg)
+                
                     
                 cv2.imshow("", frame)
                 cv2.waitKey(1)

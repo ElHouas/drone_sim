@@ -3,14 +3,14 @@
   #Set simulation parameters and compile
   #Run in the worlds folder : erb -T 1 actors.world.erb > actors.world
   #Actor0
-  x_distance = 5
-  y_distance = 3
-  z_distance = 5
+  x_distance = 8
+  y_distance = 5
+  z_distance = 0
 
   #Actor1
-  x1_distance = 4
-  y1_distance = 2
-  z1_distance = 5
+  x1_distance = 7
+  y1_distance = 5
+  z1_distance = 0
 
 %>
 
@@ -67,8 +67,8 @@
         <scale>1.0</scale>
       </skin>
       <pose><%= x1_distance %>  0 0 0 0</pose>
-      <animation name="running">
-        <filename>run.dae</filename>
+      <animation name="walking">
+        <filename>walk.dae</filename>
         <scale>1.0</scale>
         <interpolate_x>true</interpolate_x>
       </animation>
@@ -76,7 +76,7 @@
         <loop>true</loop>
         <delay_start>0</delay_start>
         <auto_start>true</auto_start>
-        <trajectory id="0" type="running">
+        <trajectory id="0" type="walking">
           <waypoint>
             <time>0</time>
             <pose><%= x1_distance %> <%= -y1_distance %> 0 0 0 1.57</pose>
