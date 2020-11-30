@@ -1,4 +1,4 @@
-# SJTU Gazebo model Reinforcement Learning 
+# Drone_sim on Gazebo
 
 ---
 ## Sprint Presentation
