@@ -29,6 +29,8 @@ Skills Summary:
 
 2. OpenCV Openpose
 
+![Drone2Gif](./media/drone_sim_openpose_tracking.gif)
+
 ---
 ## Reference
 1. https://github.com/NVIDIA-AI-IOT/trt_pose
