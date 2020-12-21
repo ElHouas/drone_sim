@@ -16,11 +16,10 @@ import PIL.Image
 from trt_pose.draw_objects import DrawObjects
 from trt_pose.parse_objects import ParseObjects
 import numpy
+from math import *
 import torch2trt
 from torch2trt import TRTModule
 numpy.set_printoptions(threshold=sys.maxsize)
-
-nPoints = 18
 
 class TrtPose():
     def __init__(self):

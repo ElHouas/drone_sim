@@ -32,8 +32,8 @@ class Yaw(object):
         self.rate = rospy.Rate(10)
         self.current_yaw = 0.0
 
-        # self.reset_simulation = rospy.ServiceProxy('/gazebo/reset_simulation', Empty)
-        # self.reset_simulation()
+        self.reset_simulation = rospy.ServiceProxy('/gazebo/reset_simulation', Empty)
+        self.reset_simulation()
 
         rospy.Subscriber("/drone/front_camera/image_raw",Image,self.camera_callback)
         self.bridge_object = CvBridge()

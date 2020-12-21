@@ -130,7 +130,7 @@ dmypy.json
 .pyre/
 
 #Sjtu drone
-src/sjtu-drone
+#src/sjtu-drone
 
 #Models
 src/drone_ai/scripts/helpers/trtpose/models/*
